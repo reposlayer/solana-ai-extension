@@ -7,7 +7,7 @@
 AI-Powered Insights:
 
 We use a pre-trained BERT model (bert-base-uncased) from Hugging Face, loaded via the @xenova/transformers library.
-The model is fine-tuned on Solana-specific data (though in our current implementation, this fine-tuning is simulated).
+.
 When a user visits a supported Solana explorer page, our content script (src/content/dataExtraction.js) extracts relevant blockchain data.
 This data is sent to our background script (src/background/aiModel.js), which uses the AI model to generate insights.
 The insights are then injected back into the webpage by our content script (src/content/insightInjection.js).

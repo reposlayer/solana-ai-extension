@@ -1,0 +1,41 @@
+{
+  "manifest_version": 2,
+  "name": "Solana AI Explorer",
+  "version": "1.0.0",
+  "description": "AI-powered insights for Solana blockchain transactions and accounts",
+  "permissions": [
+    "activeTab",
+    "storage",
+    "https://*.solana.com/*",
+    "https://*.solscan.io/*",
+    "https://*.solanabeach.io/*"
+  ],
+  "background": {
+    "scripts": ["background.js"],
+    "persistent": false
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://*.solana.com/*",
+        "https://*.solscan.io/*",
+        "https://*.solanabeach.io/*"
+      ],
+      "js": ["content.js"]
+    }
+  ],
+  "browser_action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icon16.png",
+      "48": "icon48.png",
+      "128": "icon128.png"
+    }
+  },
+  "icons": {
+    "16": "icon16.png",
+    "48": "icon48.png",
+    "128": "icon128.png"
+  },
+  "content_security_policy": "script-src 'self' https://cdn.jsdelivr.net; object-src 'self'"
+}

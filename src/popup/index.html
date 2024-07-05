@@ -1,13 +1,98 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Solana AI Explorer</title>
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <title>Solana Explorer Enhancer</title>
+  <style>
+    body {
+      width: 350px;
+      padding: 10px;
+      font-family: Arial, sans-serif;
+    }
+    .tab {
+      overflow: hidden;
+      border: 1px solid #ccc;
+      background-color: #1a1919;
+    }
+    .tab button {
+      background-color: inherit;
+      float: left;
+      border: none;
+      outline: none;
+      cursor: pointer;
+      padding: 10px 12px;
+      transition: 0.3s;
+      font-size: 14px;
+    }
+    .tab button:hover {
+      background-color: #ddd;
+    }
+    .tab button.active {
+      background-color: #ccc;
+    }
+    .tabcontent {
+      display: none;
+      padding: 6px 12px;
+      border: 1px solid #ccc;
+      border-top: none;
+    }
+    input, textarea {
+      width: 100%;
+      padding: 5px;
+      margin-bottom: 10px;
+    }
+    button {
+      width: 100%;
+      padding: 10px;
+      background-color: #4CAF50;
+      color: rgb(49, 192, 137);
+      border: none;
+      cursor: pointer;
+    }
+  </style>
 </head>
 <body>
-    <div id="root"></div>
-    <script src="popup.js"></script>
+  <div class="tab">
+    <button class="tablinks" id="defaultOpen">Ai analysis</button>
+    <button class="tablinks">Terms</button>
+    <button class="tablinks">Scam Check</button>
+    <button class="tablinks">Donate</button>
+    <button class="tablinks">Report Scam</button>
+  </div>
+
+  <div id="Analysis" class="tabcontent">
+    <h3>Solana Account Analysis</h3>
+    <div id="analysis">Loading...</div>
+  </div>
+
+  <div id="Terms" class="tabcontent">
+    <h3>Solana Terms</h3>
+    <div id="terms"></div>
+  </div>
+
+  <div id="ScamCheck" class="tabcontent">
+    <h3>Scam Activity Checker</h3>
+    <div id="scamCheck">
+      <input type="text" id="addressInput" placeholder="Enter Solana address">
+      <button id="checkScamBtn">Check Address</button>
+      <div id="scamResult"></div>
+    </div>
+  </div>
+
+  <div id="Donate" class="tabcontent">
+    <h3>Donate</h3>
+    <p>If you find this extension helpful, please consider donating to support its development:</p>
+    <input type="text" id="donationAddress" readonly>
+    <button id="copyDonationBtn">Copy Address</button>
+  </div>
+
+  <div id="ReportScam" class="tabcontent">
+    <h3>Report a Scam</h3>
+    <input type="text" id="scamAddress" placeholder="Enter scam address">
+    <textarea id="scamDescription" rows="4" placeholder="Describe the scam (optional)"></textarea>
+    <button id="reportScamBtn">Report Scam</button>
+    <div id="reportResult"></div>
+  </div>
+
+  <script src="popup.js"></script>
 </body>
 </html>
